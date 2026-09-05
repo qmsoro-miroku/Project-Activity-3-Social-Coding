@@ -124,27 +124,41 @@ def display_full(info):
     print(f"IPv4: {info['ipv4'] or 'Unavailable'}")
     print(f"IPv6: {info['ipv6'] or 'Unavailable'}")
 
-    details = info["primary_details"]
+    print("\n[IPv4 NETWORK INFORMATION]")
+    ipv4_details = info["ipv4_details"]
 
-    print("\n[NETWORK]")
-    print(f"ISP/Organization: {value(details, 'org')}")
-    print(f"ASN: {value(details, 'asn')}")
+    if ipv4_details:
+        print(f"ISP/Organization: {value(ipv4_details, 'org')}")
+        print(f"ASN: {value(ipv4_details, 'asn')}")
+        print(f"Country: {value(ipv4_details, 'country_name')}")
+        print(f"Country Code: {value(ipv4_details, 'country_code')}")
+        print(f"Region: {value(ipv4_details, 'region')}")
+        print(f"City: {value(ipv4_details, 'city')}")
+        print(f"Timezone: {value(ipv4_details, 'timezone')}")
+        print(f"Latitude: {value(ipv4_details, 'latitude')}")
+        print(f"Longitude: {value(ipv4_details, 'longitude')}")
+    else:
+        print("IPv4 network information unavailable.")
 
-    print("\n[LOCATION]")
-    print(f"Country: {value(details, 'country_name')}")
-    print(f"Country Code: {value(details, 'country_code')}")
-    print(f"Region: {value(details, 'region')}")
-    print(f"City: {value(details, 'city')}")
-    print(f"Timezone: {value(details, 'timezone')}")
+    print("\n[IPv6 NETWORK INFORMATION]")
+    ipv6_details = info["ipv6_details"]
 
-    print("\n[COORDINATES]")
-    print(f"Latitude: {value(details, 'latitude')}")
-    print(f"Longitude: {value(details, 'longitude')}")
+    if ipv6_details:
+        print(f"ISP/Organization: {value(ipv6_details, 'org')}")
+        print(f"ASN: {value(ipv6_details, 'asn')}")
+        print(f"Country: {value(ipv6_details, 'country_name')}")
+        print(f"Country Code: {value(ipv6_details, 'country_code')}")
+        print(f"Region: {value(ipv6_details, 'region')}")
+        print(f"City: {value(ipv6_details, 'city')}")
+        print(f"Timezone: {value(ipv6_details, 'timezone')}")
+        print(f"Latitude: {value(ipv6_details, 'latitude')}")
+        print(f"Longitude: {value(ipv6_details, 'longitude')}")
+    else:
+        print("IPv6 network information unavailable.")
 
     print("\n[STATUS]")
     print("IPv4 status:", "Available" if info["ipv4"] else "Unavailable")
     print("IPv6 status:", "Available" if info["ipv6"] else "Unavailable")
-
 
 def print_menu():
     print("\n" + "=" * 48)
