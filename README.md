@@ -58,3 +58,8 @@ The API response identifies the IP version associated with the request. IPv4 and
 - WHOIS lookup
 - IPv4/IPv6 connectivity test
 - GUI version
+
+## Development Status
+
+Initial technician-oriented IP information tool implementation.
+The project uses a feature-branch workflow before changes are merged into the development branch.
